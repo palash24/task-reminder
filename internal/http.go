@@ -12,9 +12,7 @@ type Server struct {
 	ServerPort string
 }
 
-func NewHttpServer() Server {
-	cfg := config.NewConfig()
-
+func NewHttpServer(cfg config.Config) Server {
 	router := chi.NewRouter()
 	router.Group(func(r chi.Router) {
 		r.Post("/api/v1/tasks", api.CreateNewTask)

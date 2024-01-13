@@ -8,8 +8,7 @@ import (
 	"github.com/palash24/task-reminder/config"
 )
 
-func NewDb() *pg.DB {
-	cfg := config.NewConfig()
+func NewDb(cfg config.Config) *pg.DB {
 	DB := pg.Connect(&pg.Options{
 		User:     cfg.DbUser,
 		Password: cfg.DBPassword,
