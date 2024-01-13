@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	// internal.NewDb()
+	internal.NewDb()
 	server := internal.NewHttpServer()
 
 	http.ListenAndServe(fmt.Sprintf("%s:%s", server.ServerAddr, server.ServerPort), server.Router)

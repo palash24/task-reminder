@@ -16,7 +16,7 @@ func NewConfig() Config {
 		ServerAddr: "localhost",
 		ServerPort: "8080",
 		DBAddr:     "localhost",
-		DBPort:     "2553",
+		DBPort:     "5432",
 		DbUser:     "postgres",
 		DBPassword: "postgres",
 		DBName:     "taskreminder",
