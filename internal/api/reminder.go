@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/go-chi/chi"
+	"github.com/go-pg/pg"
 )
 
 type Reminder struct {
@@ -14,6 +15,8 @@ type Reminder struct {
 	Description string    `json:"description"`
 	DueDateTime time.Time `json:"due_date_time"`
 }
+
+var DB *pg.DB
 
 func CreateNewReminder(w http.ResponseWriter, r *http.Request) {
 	var reminder Reminder
@@ -119,6 +122,6 @@ func PgUpdateReminderByID(reminderID string, updatedReminder *Reminder) error {
 }
 
 func PgDeleteReminderByID(reminderID string) error {
-	_, err := .Model(&Reminder{}).Where("id = ?", reminderID).Delete()
+	_, err := DB.Model(&Reminder{}).Where("id = ?", reminderID).Delete()
 	return err
 }

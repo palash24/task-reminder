@@ -8,9 +8,7 @@ import (
 	"github.com/palash24/task-reminder/config"
 )
 
-var DB *pg.DB
-
-func NewDb() {
+func NewDb() *pg.DB {
 	cfg := config.NewConfig()
 	DB := pg.Connect(&pg.Options{
 		User:     cfg.DbUser,
@@ -21,4 +19,5 @@ func NewDb() {
 	if DB == nil {
 		log.Fatal("Failed to connect to the database")
 	}
+	return DB
 }

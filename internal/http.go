@@ -17,7 +17,7 @@ func NewHttpServer() Server {
 
 	router := chi.NewRouter()
 	router.Group(func(r chi.Router) {
-		r.Post("/api/v1/api/v1/tasks", api.CreateNewTask)
+		r.Post("/api/v1/tasks", api.CreateNewTask)
 		r.Get("/api/v1/tasks", api.GetAllTheTasks)
 		r.Get("/api/v1/tasks/{taskID}", api.GetIndividualTasks)
 		r.Put("/api/v1/tasks/{taskID}", api.UpdateTaskByTaskID)
